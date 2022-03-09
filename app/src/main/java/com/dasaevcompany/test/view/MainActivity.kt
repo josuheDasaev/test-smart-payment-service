@@ -3,7 +3,6 @@ package com.dasaevcompany.test.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.dasaevcompany.test.R
 import com.dasaevcompany.test.databinding.ActivityMainBinding
 import com.dasaevcompany.test.model.Weather
 import com.dasaevcompany.test.view.adapters.WeatherAdapter
@@ -34,6 +33,8 @@ class MainActivity : AppCompatActivity(), WeatherListener {
     }
 
     override fun clickOnWeather(weather: Weather) {
-
+        val dialogFragment = InfoWeatherFragment(weather)
+        dialogFragment.show(supportFragmentManager,
+            InfoWeatherFragment::class.java.simpleName)
     }
 }
